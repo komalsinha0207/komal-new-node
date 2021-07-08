@@ -23,11 +23,13 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
-         stage('Sonarqube analysis') {
-             steps {
-                 script {
-                     withSonarQubeEnv('sonar'){
-                         sh 'npm sonar:sonar -DskipTests'
+         stage('SonarQube analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'sonarScan';
+                    withSonarQubeEnv('sonar') { // If you have configured more than one global server connection, you can specify its name
+                        sh "${scannerHome}/bin/sonar-scanner"
+
                       }
                   }
              }
