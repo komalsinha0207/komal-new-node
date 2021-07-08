@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Unit test') {
             steps {
-                sh 'chmod +x Node/jenkins/scripts/test.sh'
-                sh 'Node/jenkins/scripts/test.sh'
+                sh 'chmod +x .jenkins/scripts/test.sh'
+                sh '.jenkins/scripts/test.sh'
             }
         }
         stage('Sonarqube analysis') {
