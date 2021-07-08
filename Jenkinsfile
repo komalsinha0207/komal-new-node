@@ -23,15 +23,15 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
-//         stage('Sonarqube analysis') {
-//             steps {
-//                 script {
-//                     withSonarQubeEnv('sonar'){
-//                         sh 'npm sonar:sonar -DskipTests'
-//                      }
-//                  }
-//             }
-//         }
+         stage('Sonarqube analysis') {
+             steps {
+                 script {
+                     withSonarQubeEnv('sonar'){
+                         sh 'npm sonar:sonar -DskipTests'
+                      }
+                  }
+             }
+         }
         // stage('Artifactory') {
         //     steps {
         //         script {
